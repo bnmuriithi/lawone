@@ -9,8 +9,8 @@ $(document).bind("mobileinit", function(){
 	$.mobile.db.transaction(function(t) {
 		//t.executeSql('DROP TABLE IF EXISTS users');
 	//t.executeSql("CREATE TABLE IF NOT EXISTS users (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, pwd TEXT)");
-	t.executeSql("CREATE TABLE IF NOT EXISTS file (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,fileNumber VARCHAR NOT NULL, lastUpdate VARCHAR, partner TEXT)")
-	t.executeSql("INSERT INTO file(fileNumber, lastUpdate, partner) VALUES (?,?,?)",["123/ref/2012","5/11/2012","Melvin Kamau"]);
+	//t.executeSql("CREATE TABLE IF NOT EXISTS file (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,fileNumber VARCHAR NOT NULL, lastUpdate VARCHAR, partner TEXT)")
+	//t.executeSql("INSERT INTO file(fileNumber, lastUpdate, partner) VALUES (?,?,?)",["123/ref/2012","5/11/2012","Melvin Kamau"]);
 	
     });
 	

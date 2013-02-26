@@ -136,11 +136,7 @@ color: #FAFAFA;
 /*content*/
 .content{
 	float:right;
-<<<<<<< HEAD
-	width:66.5%;
-=======
 	width:68%;
->>>>>>> Removed the documents list and replaced it with the file detail view on panel
 	padding-bottom: 3em;
 	padding-right: 10px;
 	font-family: Arial, Helvetica, sans-serif, "Myriad Pro";

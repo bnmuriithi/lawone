@@ -16,68 +16,51 @@ $(document).bind("mobileinit", function(){
 	
 	//menu show and hide
 $('.myPage').live('pageinit', function(event) {
-	$("#hide").hide();
-    $("#show_menu").bind('tap',function(event, ui){
-        $('#menu').show('fast', function() {});
-		$('#hide').show('fast', function() {});
-		$(this).hide();
-		//$( "#show_menu" ).dialog({ overlayTheme: "a" });
-		//$.mobile.page.prototype.options.theme  = "b";
-		$(function() {
-			//var docHeight = $(document).height();
-			$('#main').append("<div id='overlay'></div>");
-			$("#overlay")
-			//.height(docHeight)
-			.css({
-				'opacity' : 0.4,
-				'position': 'absolute',
-				'top': 0,
-				'left': 0,
-				'background-color': 'black',
-				'width': '100%',
-				'height':'100%',
-				'margin-top':'105px',
-				'z-index': 5000
+	
+		$("#show_menu").bind('tap',function(event, ui){
+			$('#menu').show('fast', function () {});
+			$(this).attr('id','hide');
+			$(this).buttonMarkup({ icon: "arrow-u" });
+			$(function() {
+				//var docHeight = $(document).height();
+				$('#main').append("<div id='overlay'></div>");
+				$("#overlay")
+				//.height(docHeight)
+				.css({
+						'opacity' : 0.4,
+						'position': 'absolute',
+						'top': 0,
+						'left': 0,
+						'background-color': 'black',
+						'width': '100%',
+						'height':'100%',
+						'margin-top':'105px',
+						'z-index': 5000
 				});
 			});
-    })
+		})
 	
-	$("#hide").bind('tap',function(event, ui){
-		$(this).hide();
-        $('#menu').hide('fast', function() {});
-		$('#show_menu').show('fast', function() {});
-		$('#overlay').remove()
-    })
+		$("#hide").live('click', function (event, ui) {
+            $('#menu').hide('fast', function () {});
+            $('#overlay').remove();
+			$(this).attr('id','show_menu');
+            $(this).buttonMarkup({ icon: "arrow-r" });
+        })
 	
 	
-	$('#overlay').live('click', function()  {
-    	$(this).fadeOut("fast", function() {
-			$(this).remove();
-			$('#hide').hide('fast', function() {});
-			$('#show_menu').show('fast', function() {});
-			$('#menu').hide('fast', function() {});
-		
+		$('#overlay').live('click', function()  {
+			$(this).fadeOut("fast", function() {
+				$(this).remove();
+				$('#hide').attr('id','show_menu');
+				$('#show_menu').buttonMarkup({ icon: "arrow-r" });
+				$('#menu').hide('fast', function() {});
+			
+			});
 		});
-	});
-	
 		
-});
-//end show and hide
+	});//end pageint
 
-	//function showAll(file_id ,file_num,file_date){
-//		$("#file").apppend(
-//		
-//		'<li data-theme="c" class="files">' +
-//        '<a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" ' +
-//	    'data-user="'+ row.id + '"><img src="icons/star.jpg" alt="" class="ui-li-icon ui-li-thumb"> ' +
-//        ' <hgroup><h1>' + row.filenumber + '</h1><h2>' + row.lastUpdate + ' | ' + row.partner + ' </h2></hgroup> '+
-//        '    </a> ' +
-//        '    <span id="notification" class="ui-btn-up-b ui-btn-corner-all">Notifications 4</span> '+
-//        '</li>'
-//		
-//		);
-//	}
-});
+});//end mobileint
 
 
 
